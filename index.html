@@ -3,63 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Actionable Intel LLC</title>
+    <title>Second Look Alliance — Public Safety Starts with Public Trust</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.7; }
-        h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
-        h2 { font-size: 1.15rem; margin-top: 2rem; color: #333; }
-        .date { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
-        ul { padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; }
-        a { color: #1155AA; }
+        :root {
+            --navy: #1B2A4A;
+            --gold: #C4A34D;
+            --gold-light: rgba(196,163,77,0.12);
+            --white: #FFFFFF;
+            --cream: #F7F5F0;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --radius: 8px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        /* Nav */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--navy);
+            padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .nav-logo {
+            font-size: 1.15rem; font-weight: 700; color: var(--white);
+            text-decoration: none; letter-spacing: -0.02em;
+        }
+        .nav-logo span { color: var(--gold); }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* Sections */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 960px; margin: 0 auto; }
+        .section-title {
+            font-size: 1.8rem; font-weight: 700; color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.05rem; color: var(--text-muted); font-style: italic;
+            margin-bottom: 2rem; max-width: 720px;
+        }
+        p + p { margin-top: 1rem; }
+
+        /* Hero */
+        .hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.6rem; font-weight: 800; margin-bottom: 1.5rem;
+            letter-spacing: -0.03em; line-height: 1.2;
+        }
+        .hero h1 span { color: var(--gold); }
+        .hero p {
+            max-width: 680px; margin: 0 auto 1rem; font-size: 1.05rem;
+            color: rgba(255,255,255,0.85); line-height: 1.8;
+        }
+        .hero-cta {
+            display: inline-block; margin-top: 2rem;
+            padding: 0.8rem 2rem; border: 2px solid var(--gold);
+            color: var(--gold); text-decoration: none; font-weight: 600;
+            font-size: 0.95rem; border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+        .hero-cta:hover { background: var(--gold); color: var(--navy); }
+
+        /* Alternating backgrounds */
+        .bg-cream { background: var(--cream); }
+
+        /* Sub-headings */
+        h3 {
+            font-size: 1.2rem; font-weight: 700; color: var(--navy);
+            margin: 2rem 0 0.75rem;
+        }
+
+        /* Cards grid */
+        .card-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem; margin: 1.5rem 0;
+        }
+        .card {
+            background: var(--white); border-radius: var(--radius);
+            padding: 1.5rem; border: 1px solid rgba(0,0,0,0.08);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .card h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 0.5rem; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); }
+        .bg-cream .card { background: var(--white); }
+
+        /* Stat cards */
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem; margin: 2rem 0;
+        }
+        .stat-card {
+            text-align: center; padding: 2rem 1rem;
+            background: var(--white); border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .stat-value {
+            font-size: 2.8rem; font-weight: 800; color: var(--gold);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;
+        }
+
+        /* Callout / blockquote */
+        .callout {
+            border-left: 4px solid var(--gold); background: var(--gold-light);
+            padding: 1.25rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 1.5rem 0; font-size: 0.95rem;
+        }
+        .callout strong { color: var(--navy); }
+
+        /* Key finding */
+        .key-finding {
+            border-left: 4px solid var(--navy); background: rgba(27,42,74,0.05);
+            padding: 1.25rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0;
+            margin: 1.5rem 0; font-size: 0.95rem; font-weight: 500;
+        }
+
+        /* State tags */
+        .state-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+        .state-tag {
+            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem;
+            font-weight: 600; background: var(--navy); color: var(--white);
+        }
+
+        /* Findings sub-sections */
+        .finding-block { margin-bottom: 3rem; }
+        .finding-block h3 { border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; }
+
+        /* Contact */
+        .contact-section { background: var(--navy); color: var(--white); text-align: center; }
+        .contact-section .section-title { color: var(--white); }
+        .contact-section .section-subtitle { color: rgba(255,255,255,0.7); }
+        .contact-section p { color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+        .contact-section p + p { margin-top: 1rem; }
+        .contact-link {
+            display: inline-block; margin-top: 2rem;
+            padding: 0.8rem 2.5rem; background: var(--gold); color: var(--navy);
+            text-decoration: none; font-weight: 700; border-radius: var(--radius);
+            font-size: 1rem; transition: opacity 0.2s;
+        }
+        .contact-link:hover { opacity: 0.9; }
+
+        /* Footer */
+        footer {
+            background: #111; color: rgba(255,255,255,0.5); text-align: center;
+            padding: 2rem; font-size: 0.8rem;
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            section { padding: 3rem 1.25rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1rem 2rem; gap: 1rem; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            .stat-value { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p class="date">Effective Date: April 14, 2026</p>
 
-    <p><strong>Actionable Intel LLC</strong> ("we," "us," or "our") operates the Actionable Intel Media Monitor application and the SLA Partner Portal. This Privacy Policy describes how we collect, use, and protect information.</p>
-
-    <h2>1. Information We Collect</h2>
-    <ul>
-        <li><strong>Public Ad Data:</strong> We access publicly available advertising data through the Meta Ad Library API, including ad creative, spend ranges, and targeting categories for political and issue-based advertisements. This data is public and does not include personal user information.</li>
-        <li><strong>Portal Accounts:</strong> Partner organizations access our portal with credentials we provision. We store usernames and hashed passwords. We do not collect personal information beyond what is necessary for account access.</li>
-        <li><strong>Survey Data:</strong> We process anonymized, aggregated public opinion survey responses. Individual respondents are not personally identifiable in our systems.</li>
+<!-- Navigation -->
+<nav>
+    <a href="#" class="nav-logo">Second Look <span>Alliance</span></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#states">States</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
+</nav>
 
-    <h2>2. How We Use Information</h2>
-    <ul>
-        <li>To monitor and analyze political advertising patterns across states</li>
-        <li>To generate voter intelligence reports for our nonprofit and advocacy partners</li>
-        <li>To improve the accuracy of our survey models and messaging recommendations</li>
-    </ul>
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Public Safety Starts with <span>Public Trust</span></h1>
+        <p>Second Look Alliance is a nonpartisan research initiative dedicated to understanding what Americans truly believe about justice, accountability, and the possibility of change.</p>
+        <p>We survey residents across the country &mdash; Democrats, Republicans, and independents alike &mdash; on some of the most consequential questions in criminal justice: Who deserves a second chance? When do circumstances matter? What does a fair sentence look like? And does our system live up to the promise of equal justice under the law?</p>
+        <p>We do not advocate for a predetermined outcome. We follow the data. And what the data consistently shows is that public opinion on criminal justice is more nuanced, more compassionate, and more cross-partisan than conventional wisdom suggests.</p>
+        <a href="#about" class="hero-cta">Learn About Our Research</a>
+    </div>
+</section>
 
-    <h2>3. Information Sharing</h2>
-    <p>We do not sell, rent, or share personal information with third parties. Aggregated, non-personally-identifiable analysis is shared with our partner organizations (nonprofit advocacy groups) under contractual agreements.</p>
+<!-- About -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">What We Do</h2>
+        <p class="section-subtitle">Second Look Alliance conducts rigorous, population-representative public opinion research on criminal justice &mdash; and makes those findings available to the organizations working to improve public safety.</p>
 
-    <h2>4. Data from Meta Platform</h2>
-    <p>Data obtained through Meta APIs is used solely for analyzing publicly available political advertising. We do not:</p>
-    <ul>
-        <li>Access, store, or process private user data from Meta platforms</li>
-        <li>Use Meta data to build user profiles or for surveillance purposes</li>
-        <li>Transfer Meta data to data brokers or advertising networks</li>
-    </ul>
+        <p>Our research is built on a straightforward premise: policy that reflects what the public actually believes is more durable than policy that runs ahead of or behind it. That means listening carefully, measuring accurately, and reporting honestly &mdash; even when the findings are complicated.</p>
 
-    <h2>5. Data Security</h2>
-    <p>We use industry-standard security measures including encrypted connections (HTTPS), hashed credentials, environment-variable-based secret management, and row-level security on our database. Access to partner data is restricted to authenticated users with provisioned accounts.</p>
+        <h3>Our Research Approach</h3>
+        <p>We use a combination of online surveys and advanced statistical modeling &mdash; including Multilevel Regression and Poststratification (MrP) &mdash; to produce population-level estimates that hold up to scrutiny. Our methodology allows us to examine public opinion at the state level with a level of precision that traditional polling rarely achieves.</p>
+        <p>Every survey we field is designed to get past the surface. We avoid leading questions and social-desirability framing. We test multiple ways of asking about the same issue so we can understand not just what people support, but why &mdash; and how stable that support is under different conditions.</p>
 
-    <h2>6. Data Retention</h2>
-    <p>Public ad data is retained for research and longitudinal analysis. Portal session data expires after 7 days. Survey data is retained in anonymized, aggregated form indefinitely for research purposes.</p>
+        <h3>What We Measure</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Second Chances</h4>
+                <p>The possibility of redemption and the conditions under which the public supports sentence review and reentry.</p>
+            </div>
+            <div class="card">
+                <h4>Circumstances of Crime</h4>
+                <p>Domestic violence, trafficking, and coercion &mdash; when the context of a crime should shape how it is judged.</p>
+            </div>
+            <div class="card">
+                <h4>Access to Justice</h4>
+                <p>Socioeconomic disparity in legal representation and the public&rsquo;s view of economic fairness in the courts.</p>
+            </div>
+            <div class="card">
+                <h4>Proportional Punishment</h4>
+                <p>Judicial discretion, mandatory minimums, and whether sentences fit the crime and the individual.</p>
+            </div>
+        </div>
+        <p>Across each of these areas, we look beyond simple approval ratings to understand the depth, durability, and cross-partisan reach of public support &mdash; giving our partners the information they need to work effectively and sustainably.</p>
+    </div>
+</section>
 
-    <h2>7. Your Rights</h2>
-    <p>Partner organizations may request account deletion or data export by contacting us directly. Because we do not collect personal data from end users of political advertising, there is no personal data to access or delete for the general public.</p>
+<!-- States -->
+<section id="states" class="bg-cream">
+    <div class="container">
+        <h2 class="section-title">Where We Work</h2>
+        <p class="section-subtitle">Second Look Alliance is currently active in six states, with an expanding national footprint.</p>
 
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted at this URL with an updated effective date.</p>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-value">6</div>
+                <div class="stat-label">States with active survey research</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5,500+</div>
+                <div class="stat-label">Residents surveyed and counted</div>
+            </div>
+        </div>
 
-    <h2>9. Contact</h2>
-    <p>For privacy-related inquiries:<br>
-    <strong>Actionable Intel LLC</strong><br>
-    Email: <a href="mailto:privacy@actionableintel.org">privacy@actionableintel.org</a></p>
+        <div class="state-tags">
+            <span class="state-tag">Louisiana</span>
+            <span class="state-tag">Oklahoma</span>
+            <span class="state-tag">North Carolina</span>
+            <span class="state-tag">Virginia</span>
+            <span class="state-tag">Massachusetts</span>
+            <span class="state-tag">New Jersey</span>
+        </div>
+
+        <p>These states represent a broad cross-section of American political geography &mdash; from the Deep South to the Northeast &mdash; and allow us to examine how criminal justice attitudes vary by region, demographics, and political culture.</p>
+        <p>Each state-level study produces both a snapshot of current opinion and trend data as surveys are repeated over time. We are building the long-term dataset that advocates, policymakers, and funders need to make durable progress.</p>
+
+        <h3>Where We&rsquo;re Headed</h3>
+        <p>Second Look Alliance is actively expanding. Our goal is to field research in every state where criminal justice reform is a live policy question &mdash; which is to say, most of them. We prioritize states where credible public opinion data is scarce and where partner organizations are working on the ground without the research infrastructure they need.</p>
+
+        <div class="callout">
+            <strong>Expansion inquiries:</strong> If your organization is active in a state not currently in our footprint, reach out to discuss how Second Look Alliance research might support your work.
+        </div>
+    </div>
+</section>
+
+<!-- Partners -->
+<section id="partners">
+    <div class="container">
+        <h2 class="section-title">Supporting Organizations Dedicated to Public Safety</h2>
+        <p class="section-subtitle">Criminal justice reform and public safety are not competing goals. The data shows that the public agrees &mdash; and Second Look Alliance exists to help organizations make that case with evidence.</p>
+
+        <p>We partner with advocacy organizations, legal aid groups, reentry programs, and policy research institutions that share a commitment to a justice system that is fair, effective, and accountable. We do not do their advocacy work for them. We give them the tools to do it better.</p>
+
+        <h3>What We Offer Partners</h3>
+        <p>Partnering organizations gain access to state-level public opinion data that is typically unavailable at this level of precision outside of well-funded statewide campaigns. Our research tells partners not just what the public supports, but which populations hold those views, how firmly, and where persuadable audiences are likely to be found.</p>
+        <p>We also provide context. A single data point is rarely enough. Our analysis places findings within the broader landscape of opinion across regions, demographic groups, and political identities &mdash; helping partners understand the full terrain they are navigating.</p>
+
+        <h3>Who We Work With</h3>
+        <p>Our partner organizations work across the full spectrum of public safety and criminal justice: legal defense organizations ensuring the right to counsel, victim advocacy groups focused on justice for survivors, reentry programs supporting successful return to community, policy institutes examining sentencing and corrections reform, and community organizations working on the root causes of crime.</p>
+        <p>What unites them is a commitment to an evidence-based approach and a belief that public opinion, properly understood, is an asset rather than an obstacle.</p>
+
+        <div class="callout">
+            <strong>We are nonpartisan and non-advocacy.</strong> Our research is available to any organization working in good faith toward a more just and effective public safety system, regardless of political affiliation or ideological starting point.
+        </div>
+    </div>
+</section>
+
+<!-- Findings -->
+<section id="findings" class="bg-cream">
+    <div class="container">
+        <h2 class="section-title">What the Data Shows</h2>
+        <p class="section-subtitle">Our surveys consistently find that Americans hold more thoughtful and nuanced views on criminal justice than the political debate often suggests.</p>
+        <p>The findings below reflect aggregate patterns across our active research states. They do not represent any single survey and should be read as indicative rather than definitive &mdash; the full data, methodology, and state-by-state breakdowns are available to partner organizations and researchers upon request.</p>
+
+        <!-- Redemption -->
+        <div class="finding-block">
+            <h3>Second Chances and Redemption</h3>
+            <p>One of the most consistent findings in our research is broad public support for the idea that people can change. Across all six of our active research states, majority support exists for policies that allow individuals who have demonstrated genuine change over time to be considered for sentence review or early release.</p>
+            <p>This support is notably cross-partisan. While the language used to describe second-chance policies matters &mdash; and different framings activate different audiences &mdash; the underlying belief that incarceration should serve a constructive purpose is widely shared even among respondents who otherwise express skepticism about criminal justice reform.</p>
+            <div class="key-finding">
+                <strong>Key finding:</strong> Majorities across party lines agree that a person who committed a crime years ago should not automatically be defined by that act for the rest of their life &mdash; provided they have taken genuine steps toward change.
+            </div>
+            <p>Support is highest for policies affecting older incarcerated individuals who pose limited risk to public safety. It is more conditional &mdash; though still present &mdash; for younger individuals and those convicted of more serious offenses.</p>
+            <p>Expungement and record-clearing for lower-level offenses also commands significant public support, particularly when the case is made in terms of economic reintegration and community stability rather than leniency.</p>
+        </div>
+
+        <!-- DV -->
+        <div class="finding-block">
+            <h3>Domestic Violence and the Circumstances of Crime</h3>
+            <p>Our research on domestic violence and crime circumstances addresses a fundamental question of justice: when someone commits a crime as a direct result of being abused, trafficked, or coerced, should the legal system take those circumstances into account?</p>
+            <p>The answer from the public is clear and consistent. Across all of our research states, large majorities of respondents &mdash; including those who generally oppose criminal justice reform &mdash; agree that the circumstances surrounding a crime are relevant to how it should be judged.</p>
+            <div class="key-finding">
+                <strong>Key finding:</strong> Support for considering domestic violence victimization, trafficking, and coercion as mitigating factors in sentencing is among the highest we measure &mdash; consistently above 60 percent even among the most skeptical audiences, and significantly higher among the general population.
+            </div>
+            <p>This finding holds across demographic and political groups. Respondents who describe themselves as strong supporters of law enforcement and tough sentencing are nearly as likely as reform-leaning respondents to agree that a person who killed an abusive partner after years of documented violence should be treated differently than someone who committed premeditated homicide.</p>
+            <p>The framing matters. When DV-related policy questions are presented in terms of the court system failing victims &mdash; rather than in terms of leniency for offenders &mdash; support increases substantially. This suggests that victim-centered language is not just more accurate; it is more persuasive.</p>
+        </div>
+
+        <!-- Socioeconomic -->
+        <div class="finding-block">
+            <h3>Socioeconomic Disparity and Access to Legal Representation</h3>
+            <p>Americans express strong concern about economic inequality in the justice system &mdash; and that concern crosses political lines in ways that may surprise those who follow the public debate.</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-value">80%+</div>
+                    <div class="stat-label">Agree that people with more money receive better legal outcomes &mdash; across party lines</div>
+                </div>
+            </div>
+
+            <p>Public defender funding is one of the most broadly supported policy positions in our research. Framed as a matter of constitutional rights &mdash; the right to competent legal representation &mdash; it attracts support from respondents across the political spectrum who might otherwise be skeptical of reform.</p>
+            <div class="key-finding">
+                <strong>Key finding:</strong> Adequate funding for public defenders is among the highest-support policy positions we measure, with strong bipartisan backing. It is also one of the few policy areas where support holds up robustly even among respondents who oppose broader criminal justice reform.
+            </div>
+            <p>Fines and fees reform also draws significant public support. Respondents across the political spectrum are receptive to the argument that financial penalties that fall hardest on those who cannot pay amount to a form of double punishment &mdash; serving a jail sentence and then being unable to escape debt and consequences for years afterward.</p>
+            <p>Together, these findings suggest that economic fairness is a powerful and underutilized frame in the criminal justice conversation &mdash; one that connects with audiences who may not respond to other reform arguments.</p>
+        </div>
+
+        <!-- Proportionality -->
+        <div class="finding-block">
+            <h3>Proportional Punishment and Judicial Discretion</h3>
+            <p>Criminal sentences should fit the crime. This is not a controversial idea &mdash; it is one of the foundational principles of American jurisprudence. What our research reveals is that the public increasingly believes the current system fails to live up to it.</p>
+            <p>Large majorities of respondents agree that sentencing in the United States is often disproportionate &mdash; that mandatory minimums and rigid sentencing structures can produce outcomes that do not reflect the individual circumstances of a case, and that judges should have more latitude to ensure punishments fit the facts.</p>
+            <div class="key-finding">
+                <strong>Key finding:</strong> Majorities across the political spectrum support giving judges more discretion to tailor sentences to individual cases &mdash; a finding that holds even among respondents who favor strict sentencing in general.
+            </div>
+            <p>Sentence review &mdash; the idea that sentences handed down years or decades ago should be re-examined in light of current standards or changed circumstances &mdash; draws substantial support, particularly when framed around proportionality and the efficient use of public resources.</p>
+            <p>Taken together, these findings point toward a public that is more open to nuanced, individualized approaches to sentencing than the political conversation often assumes &mdash; and that sees judicial discretion not as a loophole, but as a safeguard against injustice.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Work With Us</h2>
+        <p class="section-subtitle">Second Look Alliance research is available to partner organizations, funders, journalists, and policymakers committed to evidence-based criminal justice policy.</p>
+        <p>If your organization works on any of the policy areas covered by our research &mdash; or if you are working in a state where you believe better public opinion data could make a difference &mdash; we want to talk.</p>
+        <p>We also welcome inquiries from researchers, journalists, and policy analysts who want to understand the data in greater depth. We are committed to transparency about our methodology and findings.</p>
+        <a href="mailto:info@secondlookalliance.org" class="contact-link">Get in Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Second Look Alliance. All rights reserved.</p>
+    <p><a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
 </body>
 </html>
